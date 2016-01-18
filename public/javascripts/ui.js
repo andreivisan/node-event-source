@@ -1,0 +1,3 @@
+function startTimer(taskId) {
+    
+}
