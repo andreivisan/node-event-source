@@ -6,7 +6,8 @@ var taskEvents = require('../task-events')
 
 /* GET home page. */
 router.get('/', getTasks, function(req, res) {
-  res.render('index', { title: 'Task manager' , tasks: req.tasks});
+    console.log('Tasks: %s', JSON.stringify(req.tasks.tasks));
+  res.render('index', { title: 'Task manager' , tasks: req.tasks.tasks});
 });
 
 router.get('/start-task', function(req, res) {
@@ -14,9 +15,9 @@ router.get('/start-task', function(req, res) {
 });
 
 function getTasks(req, res, next) {
-    var filePath = "../tasks.json";
+    var filePath = "tasks.json";
     var fileContent = fs.readFileSync(filePath);
-    req.tasks = fileContent;
+    req.tasks = JSON.parse(fileContent);
     next();
 }
 

@@ -6,10 +6,47 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
     
-    <a href="#" onclick="startTimer()"> Start timer </a>
+    <div class="tasks-table-style">
+        <table>
+            <tr>
+                <td>
+                    Task
+                </td>
+                <td >
+                    Started at
+                </td>
+                <td>
+                    Finished at
+                </td>
+                <td>
+                    Actions
+                </td>
+            </tr>
+            <% if(tasks) { %>
+                <% tasks.forEach(function(task) { %>
+                    <tr>
+                        <td>
+                            <%= task.name %>
+                        </td>
+                        <td id="started-at">
+                            
+                        </td>
+                        <td id="finished-at">
+                            
+                        </td>
+                        <td>
+                            <a href="#" onclick="startTimer()"> [Start]</a>
+                             | 
+                            <a href="#" onclick="stopTimer()"> [End] </a>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } %>
+        </table>
+    </div>
     
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="javascripts/ui.js"></script>
   </body>
 </html>
