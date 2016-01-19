@@ -1,10 +1,10 @@
 var startTaskEvent;
 
-function startTimer() {
-    $("#started-at").html((new Date()).toLocaleTimeString());
+function startTimer(index) {
+    $("#started-at-"+index).html((new Date()).toLocaleTimeString());
     startTaskEvent = new EventSource('/start-task');
     startTaskEvent.onmessage = function(e) {
-        $("#finished-at").html(e.data);
+        $("#finished-at-"+index).html(e.data);
     }
 }
 

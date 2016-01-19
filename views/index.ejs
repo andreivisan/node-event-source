@@ -24,24 +24,24 @@
                 </td>
             </tr>
             <% if(tasks) { %>
-                <% tasks.forEach(function(task) { %>
+                <% for(var i=0; i<tasks.length; i++) { %>
                     <tr>
                         <td>
-                            <%= task.name %>
+                            <%= tasks[i].name %>
                         </td>
-                        <td id="started-at">
+                        <td id="started-at-<%=i%>">
                             
                         </td>
-                        <td id="finished-at">
+                        <td id="finished-at-<%=i%>">
                             
                         </td>
                         <td>
-                            <a href="#" onclick="startTimer()"> [Start]</a>
+                            <a href="#" onclick="startTimer(<%=i%>)"> [Start]</a>
                              | 
                             <a href="#" onclick="stopTimer()"> [End] </a>
                         </td>
                     </tr>
-                <% }) %>
+                <% } %>
             <% } %>
         </table>
     </div>
